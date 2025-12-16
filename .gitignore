@@ -1,0 +1,7 @@
+.vs/
+src/CashFlow.Api/bin/
+src/CashFlow.Api/obj/
+*.user
+*.suo
+*.cache
+*.log
