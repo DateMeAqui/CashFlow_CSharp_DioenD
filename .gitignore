@@ -1,6 +1,6 @@
 .vs/
-src/CashFlow.Api/bin/
-src/CashFlow.Api/obj/
+bin/
+obj/
 *.user
 *.suo
 *.cache
