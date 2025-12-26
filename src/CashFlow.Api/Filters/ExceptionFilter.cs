@@ -23,7 +23,7 @@ namespace CashFlow.Api.Filters
         {
             if(context.Exception is ErrorOnValidationException)
             {
-                // - casting
+                // casting
                 var ex = (ErrorOnValidationException)context.Exception;
                 ResponseErrorJson errorResponse = new ResponseErrorJson(ex.Errors);
                 context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
