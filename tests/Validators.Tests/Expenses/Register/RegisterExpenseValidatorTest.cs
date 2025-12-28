@@ -1,6 +1,7 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Communication.Enums;
 using CashFlow.Communication.Requests;
+using commonTestUtilities.Requests;
 
 namespace Validators.Tests.Expenses.Register
 {
@@ -11,14 +12,7 @@ namespace Validators.Tests.Expenses.Register
         {
             //Arrange
             var validator = new RegisterExpenseValidator();
-            var request = new RequestRegisterExpenseJson
-            {
-                Title = "Title",
-                Description = "Description",
-                Amount = 100,
-                Payment = PaymentType.DebitCard,
-                Date = DateTime.Now.AddDays(-1),
-            };
+            var request = RequestRegisterExpenseJsonBuilder.Build();
 
             //Act
             var result = validator.Validate(request);
