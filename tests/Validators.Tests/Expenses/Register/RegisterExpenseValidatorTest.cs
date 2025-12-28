@@ -1,6 +1,6 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Register;
 using commonTestUtilities.Requests;
-using FluentAssertions;
+using Shouldly;
 
 namespace Validators.Tests.Expenses.Register
 {
@@ -17,7 +17,7 @@ namespace Validators.Tests.Expenses.Register
             var result = validator.Validate(request);
 
             //Assert
-            result.IsValid.Should().BeTrue();
+            result.IsValid.ShouldBeTrue();
         }
     }
 }
