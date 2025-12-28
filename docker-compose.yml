@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root_password_123
-      MYSQL_DATABASE: meu_banco
+      MYSQL_DATABASE: cashflowdb
       MYSQL_USER: usuario
       MYSQL_PASSWORD: senha_123
     ports:
