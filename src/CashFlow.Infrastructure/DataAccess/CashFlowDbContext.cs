@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess
 {
-    public class CashFlowDbContext : DbContext
+    internal class CashFlowDbContext : DbContext
     {
         // Variavel que dara acesso a tabela expenses
         public DbSet<Expense> Expenses { get; set; }
