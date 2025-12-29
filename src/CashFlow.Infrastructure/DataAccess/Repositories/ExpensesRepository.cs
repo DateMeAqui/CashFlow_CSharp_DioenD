@@ -9,6 +9,7 @@ namespace CashFlow.Infrastructure.DataAccess.Repositories
         {
             var dbContext = new CashFlowDbContext();
             dbContext.Expenses.Add(expense);
+            dbContext.SaveChanges();
         }
     }
 }
