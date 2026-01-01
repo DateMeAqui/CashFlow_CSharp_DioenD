@@ -1,4 +1,5 @@
-﻿using CashFlow.Application.UseCases.Expenses.Register;
+﻿using CashFlow.Application.UseCases.Expenses.GetAllExpense;
+using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,21 @@ namespace CashFlow.Api.Controllers
             var response = await useCase.Execute(request);
 
             return Created(string.Empty, response);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseExpensesJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetAllExpenses([FromServices] IGetAllExpenseUseCase useCase)
+        {
+            var reponse = await useCase.Execute();
+
+            if(reponse.Expenses.Count != 0)
+            {
+                return Ok(reponse);
+            }
+
+            return NoContent();
         }
     }
 }
