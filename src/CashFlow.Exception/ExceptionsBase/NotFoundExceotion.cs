@@ -2,9 +2,9 @@
 
 namespace CashFlow.Exception.ExceptionsBase
 {
-    public class NotFoundExceotion : CashFlowException
+    public class NotFoundException : CashFlowException
     {
-        public NotFoundExceotion(string message) : base(message)
+        public NotFoundException(string message) : base(message)
         {
 
         }

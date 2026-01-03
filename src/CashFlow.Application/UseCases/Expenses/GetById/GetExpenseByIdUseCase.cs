@@ -21,7 +21,7 @@ namespace CashFlow.Application.UseCases.Expenses.GetById
 
             if( result is null)
             {
-                throw new NotFoundExceotion(ResourceErrorMessages.EXPENSE_NOT_FOUND);
+                throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
             }
 
             return _mapper.Map<ResponseExpenseJson>(result);
