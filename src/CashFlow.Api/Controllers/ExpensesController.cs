@@ -2,6 +2,7 @@
 using CashFlow.Application.UseCases.Expenses.GetAllExpense;
 using CashFlow.Application.UseCases.Expenses.GetById;
 using CashFlow.Application.UseCases.Expenses.Register;
+using CashFlow.Application.UseCases.Expenses.Update;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +61,21 @@ namespace CashFlow.Api.Controllers
             await useCase.Execute(id);
 
             return NoContent();
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(
+            [FromRoute] Guid id,
+            [FromServices] IUpdateExpenseUseCase useCase,
+            [FromBody]RequestRegisterExpenseJson request)
+
+        {
+            await useCase.Execute(id, request);
+            return NoContent(); 
         }
     }
 }
